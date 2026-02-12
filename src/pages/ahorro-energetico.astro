@@ -1,0 +1,219 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'Ahorro Energético para Empresas | GESTEPA',
+  description: 'Estudio gratuito de luz y gas. Trabajamos con más de 40 comercializadoras para reducir tus costes entre un 5% y un 20%.',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <Hero
+    tagline="Servicio Prioritario para Empresas"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'SOLICITAR ESTUDIO GRATUITO',
+        href: '#contacto',
+        icon: 'tabler:file-analytics',
+        class: 'bg-emerald-600 hover:bg-emerald-700 text-white', // Verde Energía
+      },
+      {
+        text: 'Saber más',
+        href: '#como-funciona',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Ahorro energético en <span class="text-emerald-600">Luz y Gas</span> para tu empresa
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      No somos una empresa que "cambia de compañía y desaparece". Ofrecemos un <strong>servicio integral y continuo</strong> para reducir tus costes sin que tengas que preocuparte de gestiones. <br/>
+      <span class="font-bold text-emerald-700">100% Gratuito para la empresa.</span>
+    </Fragment>
+
+    <Fragment slot="bg">
+       <div class="absolute inset-0 bg-emerald-50/50 dark:bg-slate-900 z-10"></div>
+       <img 
+        src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1920&q=80" 
+        class="absolute inset-0 w-full h-full object-cover -z-10 opacity-30" 
+        alt="Ahorro energético"
+      />
+    </Fragment>
+  </Hero>
+
+  <Features2
+    title="Independencia y Transparencia"
+    subtitle="Nuestro objetivo no es cambiar por cambiar, sino garantizar que siempre tengas la mejor opción disponible."
+    columns={3}
+    items={[
+      {
+        title: 'Estudio Real y Honesto',
+        description: 'Analizamos tu factura en profundidad. Si ya tienes buen precio, te lo decimos y no cambiamos nada.',
+        icon: 'tabler:search',
+      },
+      {
+        title: '+40 Comercializadoras',
+        description: 'Trabajamos con grandes y alternativas, sin vinculación exclusiva con ninguna. Buscamos TU ahorro.',
+        icon: 'tabler:building-store',
+      },
+      {
+        title: 'Seguimiento Continuo',
+        description: 'No es una gestión puntual. Revisamos periódicamente para asegurar que sigues ahorrando año tras año.',
+        icon: 'tabler:infinity',
+      },
+    ]}
+  />
+
+  <Steps
+    id="como-funciona"
+    title="Un proceso sencillo y transparente"
+    tagline="Cómo trabajamos"
+    items={[
+      {
+        title: 'Paso 1: Análisis de Factura',
+        description: 'Nos envías una factura reciente. Realizamos un estudio gratuito de potencia y costes.',
+        icon: 'tabler:file-text',
+      },
+      {
+        title: 'Paso 2: Comparativa de Mercado',
+        description: 'Comparamos tu situación actual con las tarifas de más de 40 comercializadoras.',
+        icon: 'tabler:arrows-diff',
+      },
+      {
+        title: 'Paso 3: Propuesta (Solo si mejoras)',
+        description: 'Solo te presentamos propuesta si conseguimos un ahorro real (habitualmente entre 5% y 20%).',
+        icon: 'tabler:percentage',
+      },
+      {
+        title: 'Paso 4: Gestión Integral',
+        description: 'Nos encargamos del cambio de titular, cuentas bancarias y trámites administrativos. Tú no haces nada.',
+        icon: 'tabler:writing-sign',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80',
+      alt: 'Gráfico de ahorro',
+    }}
+  />
+
+  <Content
+    isReversed
+    title="Beneficios para tu empresa"
+    items={[
+      {
+        title: 'Ahorro Directo',
+        description: 'Reducción de costes desde la primera factura. Optimizamos también la potencia contratada.',
+      },
+      {
+        title: 'Servicio 100% Gratuito',
+        description: 'El estudio, la gestión y el seguimiento no tienen coste para ti.',
+      },
+      {
+        title: 'Tranquilidad Total',
+        description: 'Un único interlocutor. Evita llamadas comerciales y gestiones administrativas tediosas.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1000&q=80',
+      alt: 'Beneficios empresa',
+    }}
+  />
+
+  <Testimonials
+    title="Resultados Reales"
+    subtitle="Ejemplos de lo que hemos conseguido para nuestros clientes"
+    testimonials={[
+      {
+        testimonial: 'Empresa del sector servicios redujo su factura eléctrica en un 18% tras el estudio, manteniendo el mismo consumo y sin cortes.',
+        name: 'Sector Servicios',
+        job: 'Ahorro: 18%',
+        image: {
+          src: 'https://images.unsplash.com/photo-1560179707-f14e90ef3dab?auto=format&fit=crop&w=100&q=80',
+          alt: 'Empresa',
+        },
+      },
+      {
+        testimonial: 'Autónomo consiguió optimizar su potencia contratada y ahorrar más de un 25% anual en su factura de luz gracias a la gestión.',
+        name: 'Autónomo Local',
+        job: 'Ahorro: 25%',
+        image: {
+          src: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=100&q=80',
+          alt: 'Autónomo',
+        },
+      },
+      {
+        testimonial: 'Revisión de contrato de gas en hostelería, evitando una subida automática y consiguiendo mantener precio de mercado.',
+        name: 'Sector Hostelería',
+        job: 'Gestión Vital',
+        image: {
+          src: 'https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=100&q=80',
+          alt: 'Hostelería',
+        },
+      },
+    ]}
+  />
+
+  <FAQs
+    title="Preguntas Frecuentes"
+    subtitle="Resolvemos tus dudas sobre el cambio de comercializadora"
+    items={[
+      {
+        title: '¿El servicio tiene algún coste?',
+        description: 'No. El estudio, la gestión y el seguimiento son totalmente gratuitos para el cliente[cite: 103].',
+      },
+      {
+        title: '¿Me van a cambiar de compañía aunque no me convenga?',
+        description: 'No. Si tras el estudio vemos que tu precio ya es bueno, te lo comunicamos honestamente y no realizamos cambios[cite: 105].',
+      },
+      {
+        title: '¿El cambio puede causar cortes de luz?',
+        description: 'Rotundamente No. El cambio es administrativo y no implica cortes de suministro ni cambios en la instalación física[cite: 111].',
+      },
+      {
+        title: '¿Tengo que ocuparme de los trámites?',
+        description: 'De nada. Nosotros gestionamos altas, bajas, cambios de cuenta y cualquier incidencia administrativa[cite: 109].',
+      },
+      {
+        title: '¿Con qué comercializadoras trabajáis?',
+        description: 'Trabajamos con más de 40 compañías, tanto las grandes tradicionales como alternativas, para buscar el mejor precio[cite: 106].',
+      },
+    ]}
+  />
+
+  <CallToAction
+    id="contacto"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'ENVIAR FACTURA PARA ESTUDIO',
+        href: 'mailto:info@gestepa.com?subject=Solicitud%20Estudio%20Energético',
+        icon: 'tabler:mail',
+        class: 'bg-emerald-600 hover:bg-emerald-700 w-full sm:w-auto',
+      },
+      {
+        text: 'LLAMAR AHORA: 955 21 15 15',
+        href: 'tel:955211515',
+        icon: 'tabler:phone',
+      }
+    ]}
+  >
+    <Fragment slot="title">
+      Empieza a ahorrar hoy mismo
+    </Fragment>
+    <Fragment slot="subtitle">
+      Envíanos tu última factura sin compromiso y te diremos cuánto puedes ahorrar. <br/>
+      Servicio 100% gratuito y sin permanencia con nosotros.
+    </Fragment>
+  </CallToAction>
+
+</Layout>

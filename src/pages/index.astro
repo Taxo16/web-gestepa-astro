@@ -1,137 +1,129 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro'; // <--- IMPORTADO NUEVO
+import Image from '~/components/common/Image.astro';
+
+// IMPORTS DE IMÁGENES
+import heroImage from '~/assets/images/fondo-gestepa.jpeg';
+
+// Imports del Equipo
+import anastasioImg from '~/assets/images/personal/ANASTASIO.jpg';
+import ireneImg from '~/assets/images/personal/IRENE.jpg';
+import joseCarlosImg from '~/assets/images/personal/JOSE CARLOS.jpg';
+import martaImg from '~/assets/images/personal/MARTA.jpg';
+import nataliaImg from '~/assets/images/personal/NATALIA.jpg';
+import patriciaImg from '~/assets/images/personal/PATRICIA.jpg';
 
 const metadata = {
-  title: 'AstroWind — Free template for creating websites with Astro + Tailwind CSS',
+  title: 'GESTEPA | Asesoría Integral para Empresas y Despachos',
   ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
+  
   <Hero
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
+        text: 'CONTACTA AHORA',
+        href: '/contact',
+        icon: 'tabler:mail',
       },
-      { text: 'Learn more', href: '#features' },
+      {
+        text: 'SOLICITA ASESORAMIENTO',
+        href: '#servicios',
+        class: 'bg-white text-blue-900 hover:bg-blue-50 font-bold',
+      },
+      {
+        text: 'AHORRO ENERGÉTICO',
+        href: '/ahorro-energetico',
+        icon: 'tabler:bolt',
+        class: 'bg-emerald-600 text-white hover:bg-emerald-700 font-bold shadow-lg',
+      },
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
   >
     <Fragment slot="title">
-      Free template for <span class="hidden xl:inline">creating websites with</span>
-      <span class="text-accent dark:text-white"> Astro 5.0</span> + Tailwind CSS
+      <span class="text-white font-black uppercase tracking-widest text-shadow-gestepa">
+        GESTEPA ASESORES
+      </span> 
+      <br />
+      
+      <span class="text-blue-200 font-black uppercase tracking-widest text-shadow-gestepa highlight min-h-[1.2em] inline-block pl-4 md:pl-6">
+        <span id="typewriter-text"></span>
+        <span id="cursor" class="animate-pulse text-white">|</span>
+      </span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">AstroWind</span> is a free, customizable and production-ready template for Astro 5.0
-        + Tailwind CSS.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Suitable for Startups, Small Business, SaaS websites, Professional Portfolios, Marketing websites, Landing Pages &
-      Blogs.
+      <span class="text-white text-lg font-medium text-shadow-gestepa tracking-wide">
+        Somos un despacho profesional de <span class="text-blue-200 font-bold">servicios integrales</span>. 
+        Ofrecemos soluciones completas a <span class="font-bold text-white uppercase">empresas</span> y soporte técnico especializado a <span class="font-bold text-white uppercase">otras asesorías</span>.
+      </span>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-[#1e425e]/30 dark:bg-slate-900/40 z-10"></div>
+      <img 
+        src={heroImage.src}
+        class="absolute inset-0 w-full h-full object-cover -z-10" 
+        alt="Oficina Gestepa"
+      />
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
-
-  <Note title="Philosophy:" description="Simplicity, Best Practices and High Performance" />
-
-  <!-- Features Widget *************** -->
-
   <Features
-    id="features"
-    tagline="Features"
-    title="What you get with AstroWind"
-    subtitle="One of the most professional and comprehensive templates currently on the market. Most starred & forked Astro theme in 2022, 2023 and 2024."
+    id="features-intro"
+    columns={3}
     items={[
       {
-        title: 'Astro + Tailwind CSS Integration',
-        description:
-          'A seamless integration between two great frameworks that offer high productivity, performance and versatility.',
-        icon: 'tabler:brand-tailwind',
+        title: 'Servicio Integral',
+        description: 'Centraliza laboral, fiscal, jurídico y energía en un único despacho. Evita errores de coordinación.',
+        icon: 'tabler:circles-relation',
       },
       {
-        title: 'Ready-to-use Components',
-        description:
-          'Widgets made with Tailwind CSS ready to be used in Marketing Websites, SaaS, Blogs, Personal Profiles, Small Business...',
-        icon: 'tabler:components',
+        title: 'Apoyo a Asesorías',
+        description: 'Actuamos como soporte técnico para otros despachos que necesitan reforzar sus servicios.',
+        icon: 'tabler:users-group',
       },
       {
-        title: 'Best Practices',
-        description:
-          'Creating secure, efficient, and user-friendly websites that deliver exceptional experiences and lasting value.',
-        icon: 'tabler:list-check',
-      },
-      {
-        title: 'Excellent Page Speed',
-        description:
-          'Having a good page speed impacts organic search ranking, improves user experience (UI/UX) and increase conversion rates.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          "SEO lies in its ability to enhance a website's visibility, driving organic traffic and enabling it to reach a wider audience.",
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Open to new ideas and contributions',
-        description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
-        icon: 'tabler:bulb',
+        title: 'Ahorro de Costes',
+        description: 'Optimizamos tus facturas de luz y gas y ajustamos tus seguros a lo que realmente necesitas.',
+        icon: 'tabler:pig-money',
       },
     ]}
   />
 
-  <!-- Content Widget **************** -->
-
   <Content
+    id="nosotros"
     isReversed
-    tagline="Inside template"
-    title="AstroWind's Blueprint: Fun Meets Functionality!"
+    tagline="Nuestra Filosofía"
+    title="GESTEPA ASESORES"
     items={[
       {
-        title: 'Built on top of Astro 5.0',
+        title: 'Visión Global',
         description:
-          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+          'Nuestro equipo trabaja de forma coordinada para anticiparse a problemas en todos los ámbitos de tu empresa.',
       },
       {
-        title: 'Styled using Tailwind CSS',
+        title: 'Seguridad',
         description:
-          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
-      },
-      {
-        title: 'Cross-browser compatibility',
-        description:
-          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+          'Dominamos toda la normativa vigente. Déjate guiar por expertos y evita riesgos innecesarios.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Reunión GESTEPA',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
-      Gain a competitive advantage by incorporating industry leading practices
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Un único interlocutor</h3>
+      Ofrecemos un servicio integral para la tranquilidad de tu empresa.
     </Fragment>
 
     <Fragment slot="bg">
@@ -139,261 +131,328 @@ const metadata = {
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
+  <Stats
+    title="La mejor recompensa a nuestro esfuerzo está en los resultados"
+    stats={[
+      { title: 'Clientes Satisfechos', amount: '+400' },
+      { title: 'Fidelidad', amount: '99%' },
+      { title: 'Años de Trayectoria', amount: '+20' },
+      { title: 'Profesionales', amount: '12' },
+    ]}
+  />
 
-  <Content
-    isAfterContent
+  <Features
+    id="servicios"
+    tagline="Servicios"
+    title="CATÁLOGO DE SERVICIOS INTEGRALES"
+    subtitle="Si estás buscando ayuda, nosotros sabemos asesorarte con todo detalle."
     items={[
       {
-        title: 'High level of customization',
-        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+        title: 'Asesoría Laboral',
+        description: 'Gestión de contratos, nóminas y seguros sociales con máxima precisión.',
+        icon: 'tabler:building-bank',
       },
       {
-        title: 'Multiple layout possibilities',
-        description:
-          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+        title: 'Asesoría Fiscal',
+        description: 'Cumplimiento óptimo de impuestos ante la administración tributaria.',
+        icon: 'tabler:gavel',
       },
       {
-        title: 'Fully responsive design',
-        description:
-          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
+        title: 'Área Contable',
+        description: 'Libros oficiales, balances, cuentas anuales y registro mercantil.',
+        icon: 'tabler:calculator',
       },
       {
-        title: 'Integration of media',
-        description:
-          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+        title: 'Asesoría Jurídica',
+        description: 'Soluciones legales en normativas, leyes y defensa jurídica.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Ahorro Energético',
+        description: 'Estudio gratuito de facturas de luz y gas con más de 40 comercializadoras.',
+        icon: 'tabler:bolt', 
+      },
+      {
+        title: 'Extranjería y Vehículos',
+        description: 'Gestión de permisos de residencia, trabajo y transferencias de vehículos.',
+        icon: 'tabler:world',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
-      alt: 'Blueprint Image',
-    }}
-  >
-    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
+  />
 
   <Content
     isReversed
-    isAfterContent
+    id="asesorias"
+    tagline="Colaboración B2B"
+    title="Soporte técnico para otras Asesorías"
     items={[
       {
-        title: 'Enhanced user engagement',
-        description:
-          'Captivate your audience with interactive elements, intuitive navigation, and visually appealing layouts, encouraging longer visits.',
+        title: 'Marca Blanca y Confidencialidad',
+        description: 'Nos adaptamos a tu forma de trabajar con absoluta discreción y rigor técnico.',
       },
       {
-        title: 'Continuous improvement',
-        description:
-          'Ensure your website stays aligned with the latest trends and technologies through regular updates and enhancements.',
+        title: 'Sin costes fijos',
+        description: 'Amplía tu cartera de servicios sin aumentar tu estructura de personal.',
       },
       {
-        title: 'Time and resource efficiency',
-        description:
-          'Skip the time-consuming process of building a website from scratch and launch your online presence sooner with AstroWind.',
-      },
-      {
-        title: 'Community support',
-        description: `Join the growing AstroWind community for insights, resources, and assistance, ensuring you're never alone on your web development journey.`,
+        title: 'Especialización',
+        description: 'Actuamos como tu departamento técnico en áreas fiscal, laboral o jurídica.',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1611462985358-60d3498e0364?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Astronauts Image',
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Colaboración entre asesorías',
     }}
   >
-    <Fragment slot="content">Designed to foster growth and success.</Fragment>
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        ¿Eres un despacho profesional?
+      </h3>
+      Ayudamos a otros despachos a crecer ofreciendo soporte técnico especializado en áreas donde necesitan refuerzo.
+    </Fragment>
 
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Get your dream website up and running in no time with AstroWind."
-    items={[
+  <Testimonials
+    title="Casos de éxito reales"
+    subtitle="Resultados comprobables en empresas que confían en nosotros"
+    testimonials={[
       {
-        title: 'Step 1: <span class="font-medium">Download</span>',
-        description:
-          "Kickstart with GitHub! Either fork the AstroWind template or simply click 'Use this template'. Your canvas awaits, ready for your digital masterpiece. In just a few clicks, you've already set the foundation.",
-        icon: 'tabler:package',
+        testimonial: 'Empresa del sector servicios redujo su factura eléctrica en un 18% tras el estudio energético, manteniendo el mismo consumo y sin cortes en el suministro.',
+        name: 'Sector Servicios',
+        job: 'Ahorro Energético',
+        image: {
+          src: 'https://images.unsplash.com/photo-1560179707-f14e90ef3dab?auto=format&fit=crop&w=100&q=80',
+          alt: 'Caso de éxito Energía',
+        },
       },
       {
-        title: 'Step 2: <span class="font-medium">Add content</span>',
-        description:
-          "Pour your vision into it. Add images, text, and all that jazz to breathe life into your digital space. Remember, it's the content that tells your story, so make it captivating.",
-        icon: 'tabler:letter-case',
+        testimonial: 'Autónomo consiguió optimizar su potencia contratada logrando un ahorro de más del 25% anual en su factura de luz gracias a la revisión gratuita.',
+        name: 'Autónomo Local',
+        job: 'Optimización de Costes',
+        image: {
+          src: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=100&q=80',
+          alt: 'Caso de éxito Autónomo',
+        },
       },
       {
-        title: 'Step 3: <span class="font-medium">Customize styles</span>',
-        description:
-          'Give it your personal touch. Tailor colors, fonts, and layouts until it feels just right. Your unique flair, amplified by AstroWind! Precision in design ensures a seamless user experience.',
-        icon: 'tabler:paint',
-      },
-      {
-        title: 'Ready!',
-        icon: 'tabler:check',
+        testimonial: 'Externalización completa del área laboral para un despacho colaborador, permitiéndoles ampliar su servicio sin aumentar costes fijos.',
+        name: 'Asesoría Colaboradora',
+        job: 'Soporte B2B',
+        image: {
+          src: 'https://images.unsplash.com/photo-1556910103-1c02745a30bf?auto=format&fit=crop&w=100&q=80',
+          alt: 'Caso de éxito B2B',
+        },
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Most used widgets"
-    subtitle="Provides frequently used components for building websites using Tailwind CSS"
-    tagline="Components"
-    items={[
-      {
-        title: 'Headers',
-        description: "Ever tried driving without GPS? Boom! That's why websites need headers for direction.",
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Heros',
-        description:
-          "Picture a superhero landing – epic, right? That's the job of a Hero section, making grand entrances!",
-        icon: 'flat-color-icons:gallery',
-      },
-      {
-        title: 'Features',
-        description:
-          'Where websites strut their stuff and show off superpowers. No holding back on the bragging rights here!',
-        icon: 'flat-color-icons:approval',
-      },
-      {
-        title: 'Content',
-        description:
-          "Dive into the meat and potatoes of a site; without it, you'd just be window shopping. Content is king.",
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Call-to-Action',
-        description:
-          'That enthusiastic friend who\'s always urging, "Do it! Do it!"? Yeah, that\'s this button nudging you towards adventure.',
-        icon: 'flat-color-icons:advertising',
-      },
-      {
-        title: 'Pricing',
-        description: 'Behold the dessert menu of the website world. Tempting choices await, can you resist?',
-        icon: 'flat-color-icons:currency-exchange',
-      },
-      {
-        title: 'Testimonial',
-        description: 'Step into the gossip corner! Here, other visitors spill the beans and share the juicy details.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-      {
-        title: 'Contact',
-        description:
-          'Like a digital mailbox, but faster! Drop a line, ask a question, or send a virtual high-five. Ding! Message in.',
-        icon: 'flat-color-icons:business-contact',
-      },
-      {
-        title: 'Footers',
-        description: "The footer's like the credits of a movie but sprinkled with easter eggs. Time to hunt!",
-        icon: 'flat-color-icons:database',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
+  <section class="relative not-prose scroll-mt-[72px]" id="equipo">
+    <div class="absolute inset-0 pointer-events-none -z-[1]" aria-hidden="true">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
+    </div>
+    
+    <div class="relative mx-auto max-w-7xl px-4 md:px-6 py-12 md:py-20 lg:py-24 text-default">
+      
+      <div class="mb-8 md:mx-auto md:mb-12 text-center max-w-3xl">
+        <p class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase">
+          Equipo Humano
+        </p>
+        <h2 class="font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl md:text-4xl">
+          Conoce a los expertos detrás de tu tranquilidad
+        </h2>
+        <p class="mt-4 text-muted text-xl dark:text-slate-400">
+          Profesionales titulados, cercanos y comprometidos con tu negocio.
+        </p>
+      </div>
 
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  />
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Downloads', amount: '132K' },
-      { title: 'Stars', amount: '24.8K' },
-      { title: 'Forks', amount: '10.3K' },
-      { title: 'Users', amount: '48.4K' },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          [
+            // 1. Anastasio
+            { 
+              name: 'Anastasio', 
+              role: 'Director General', 
+              img: anastasioImg 
+            },
+            // 2. José Carlos
+            { 
+              name: 'José Carlos', 
+              role: 'Responsable de Coordinación y Operaciones', 
+              img: joseCarlosImg 
+            },
+            // 3. Natalia Martín
+            { 
+              name: 'Natalia Martín', 
+              role: 'Responsable Área Fiscal y Contable', 
+              img: nataliaImg 
+            },
+            // 4. Irene Prieto
+            { 
+              name: 'Irene Prieto', 
+              role: 'Especialista del Área Laboral', 
+              img: ireneImg 
+            },
+            // 5. Marta Muñoz
+            { 
+              name: 'Marta Muñoz', 
+              role: 'Responsable del Área Laboral', 
+              img: martaImg 
+            },
+            // 6. Silvia Patricia Rueda (Usamos la foto de PATRICIA.jpg)
+            { 
+              name: 'Silvia Patricia Rueda', 
+              role: 'Responsable de Servicios Corporativos', 
+              img: patriciaImg 
+            },
+          ].map((member) => (
+            <div class="group flex flex-col items-center bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 text-center border border-gray-100 dark:border-gray-700 hover:shadow-xl transition duration-300">
+              <div class="relative mb-4">
+                <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-blue-50 group-hover:border-blue-200 transition duration-300 bg-white shadow-sm flex items-end justify-center">
+                    <Image 
+                      src={member.img} 
+                      alt={member.name} 
+                      class="w-full h-full object-contain object-bottom"
+                      width={300}
+                      height={300}
+                    />
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-1 text-gray-900 dark:text-white">{member.name}</h3>
+              <p class="text-secondary dark:text-blue-400 font-medium uppercase text-sm tracking-wider px-2">{member.role}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
   <CallToAction
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
+        text: 'ACCESO CLIENTES',
+        href: 'https://gestepaasesores.bilky.es/auth/login',
         target: '_blank',
-        icon: 'tabler:download',
+        icon: 'tabler:lock',
       },
     ]}
   >
     <Fragment slot="title">
-      Astro&nbsp;+&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">Tailwind CSS</span>
+      ¡Solo un click te separa de la mejor solución!
     </Fragment>
-
     <Fragment slot="subtitle">
-      Be very surprised by these huge fake numbers you are seeing on this page. <br class="hidden md:inline" />Don't
-      waste more time! :P
+      Accede a tu área privada y gestiona tu documentación al instante.
     </Fragment>
   </CallToAction>
+
+  <Hero id="frase">
+    <Fragment slot="title">
+      <span class="text-3xl md:text-4xl font-serif italic text-gray-700 dark:text-gray-300">
+        "El mejor Asesor es el que te indica el mejor camino"
+      </span>
+    </Fragment>
+  </Hero>
+
+  <Content
+    isReversed
+    title="TECNOLOGÍA MÁS AVANZADA"
+    subtitle="Para estar al día de todo lo que le afecta a tu negocio."
+    items={[
+      {
+        title: 'Digitalización',
+        description: 'Implementamos las últimas herramientas digitales para agilizar trámites.',
+      },
+      {
+        title: 'Seguridad',
+        description: 'Tus datos están protegidos con los mejores sistemas de ciberseguridad.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2015&q=80',
+      alt: 'Tecnología GESTEPA',
+    }}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'CONTACTAR AHORA',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'LLAMAR 955 21 15 15',
+        href: 'tel:955913370',
+        icon: 'tabler:phone',
+      }
+    ]}
+  >
+    <Fragment slot="title">
+      ¿Necesitas más información?
+    </Fragment>
+    <Fragment slot="subtitle">
+      Estamos aquí para ayudarte. Contacta con nosotros sin compromiso.
+    </Fragment>
+  </CallToAction>
+
 </Layout>
+
+<script>
+  // FRASES ESTRATÉGICAS B2B
+  const phrases = [
+    "SERVICIO INTEGRAL",
+    "PARA EMPRESAS",
+    "APOYO A ASESORÍAS",
+    "AHORRO ENERGÉTICO"
+  ];
+  
+  const typingSpeed = 100;
+  const deletingSpeed = 50;
+  const pauseTime = 2000;
+  
+  let currentPhraseIndex = 0;
+  let currentCharIndex = 0;
+  let isDeleting = false;
+  
+  const textElement = document.getElementById('typewriter-text');
+  
+  function type() {
+    if (!textElement) return;
+
+    const currentPhrase = phrases[currentPhraseIndex];
+    
+    if (isDeleting) {
+      textElement.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+      currentCharIndex--;
+    } else {
+      textElement.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+      currentCharIndex++;
+    }
+
+    let typeSpeed = isDeleting ? deletingSpeed : typingSpeed;
+
+    if (!isDeleting && currentCharIndex === currentPhrase.length) {
+      typeSpeed = pauseTime;
+      isDeleting = true;
+    } else if (isDeleting && currentCharIndex === 0) {
+      isDeleting = false;
+      currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+      typeSpeed = 500;
+    }
+
+    setTimeout(type, typeSpeed);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(type, 1000);
+  });
+</script>

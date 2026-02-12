@@ -1,39 +1,36 @@
 ---
-import '@fontsource-variable/inter';
+import '@fontsource-variable/raleway';
 
 // 'DM Sans'
-// Nunito
-// Dosis
-// Outfit
-// Roboto
-// Literata
-// 'IBM Plex Sans'
-// Karla
-// Poppins
-// 'Fira Sans'
-// 'Libre Franklin'
-// Inconsolata
-// Raleway
-// Oswald
-// 'Space Grotesk'
-// Urbanist
+// 'Roboto Slab'
+// 'Nunito'
+// 'Outfit'
+// 'Roboto'
+// 'Literata'
+// 'Inter'
 ---
 
 <style is:inline>
   :root {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-sans: 'Raleway Variable', sans-serif;
+    --aw-font-serif: 'Raleway Variable', serif;
+    --aw-font-heading: 'Raleway Variable', sans-serif;
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    /* PALETA GESTEPA */
+    /* Primary: Azul Oscuro (#1e425e) -> RGB: 30, 66, 94 */
+    --aw-color-primary: rgb(30 66 94);
+    /* Secondary: Azul Celeste (#4598df) -> RGB: 69, 152, 223 */
+    --aw-color-secondary: rgb(69 152 223);
+    --aw-color-accent: rgb(69 152 223);
 
-    --aw-color-text-heading: rgb(0 0 0);
+    --aw-color-text-heading: rgb(30 66 94);
     --aw-color-text-default: rgb(16 16 16);
     --aw-color-text-muted: rgb(16 16 16 / 66%);
+
     --aw-color-bg-page: rgb(255 255 255);
 
+    /* MODO OSCURO */
+    /* Mantenemos un fondo oscuro limpio para el cuerpo de la web */
     --aw-color-bg-page-dark: rgb(3 6 32);
 
     ::selection {
@@ -42,13 +39,13 @@ import '@fontsource-variable/inter';
   }
 
   .dark {
-    --aw-font-sans: 'Inter Variable';
-    --aw-font-serif: 'Inter Variable';
-    --aw-font-heading: 'Inter Variable';
+    --aw-font-sans: 'Raleway Variable', sans-serif;
+    --aw-font-serif: 'Raleway Variable', serif;
+    --aw-font-heading: 'Raleway Variable', sans-serif;
 
-    --aw-color-primary: rgb(1 97 239);
-    --aw-color-secondary: rgb(1 84 207);
-    --aw-color-accent: rgb(109 40 217);
+    --aw-color-primary: rgb(69 152 223);
+    --aw-color-secondary: rgb(30 66 94);
+    --aw-color-accent: rgb(69 152 223);
 
     --aw-color-text-heading: rgb(247, 248, 248);
     --aw-color-text-default: rgb(229 236 246);
@@ -59,5 +56,91 @@ import '@fontsource-variable/inter';
       background-color: black;
       color: snow;
     }
+  }
+
+  /* --- AJUSTES DE ESPACIADO (LETTER-SPACING) --- */
+  
+  /* Separación para el cuerpo */
+  body {
+    letter-spacing: 0.025em;
+  }
+
+  /* FUERZA BRUTA: Usamos !important para ganar a Tailwind */
+  h1, h2, h3, h4, h5, h6,
+  .font-bold, .uppercase,
+  .tracking-tight, .tracking-tighter {
+    letter-spacing: 0.06em !important;
+  }
+
+  .btn {
+    letter-spacing: 0.05em !important;
+  }
+
+  /* --- EFECTOS ESPECIALES --- */
+
+  /* Sombra profesional GESTEPA para el texto sobre imagen */
+  .text-shadow-gestepa {
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+  }
+
+  /* --- HEADER (MENÚ) FORZADO A AZUL CORPORATIVO --- */
+  
+  /* 1. Fondo Azul Corporativo (#1e425e) siempre */
+  #header {
+    background-color: #1e425e !important;
+    border-bottom: none !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* Asegurar que si hace scroll siga siendo azul */
+  #header.sticky {
+    background-color: #1e425e !important;
+  }
+
+  /* 2. Todos los textos del menú en BLANCO */
+  #header nav a, 
+  #header nav span,
+  #header button,
+  #header [data-aw-toggle-menu] {
+    color: white !important;
+  }
+
+  /* --- NUEVO: COMPACTAR EL MENÚ PARA QUE QUEPA TODO --- */
+  #header nav a {
+    /* Reducimos el tamaño de letra (antes era aprox 1rem) */
+    font-size: 0.85rem !important; 
+    
+    /* Reducimos el padding lateral para juntarlos más */
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+    
+    /* Evitamos saltos de línea */
+    white-space: nowrap !important;
+  }
+  
+  /* Hover sutil en enlaces */
+  #header nav a:hover {
+    color: rgb(186, 230, 253) !important; /* un azul cielo muy claro */
+    opacity: 1 !important;
+  }
+
+  /* 3. Botones de Acción (Acceso Clientes) */
+  /* Invertimos colores: Fondo Blanco, Texto Azul */
+  #header a.btn-primary,
+  #header a.btn-secondary {
+    background-color: white !important;
+    color: #1e425e !important;
+    border: none !important;
+    font-weight: 800 !important; /* Extra negrita */
+    
+    /* También reducimos un poco el botón para que vaya acorde */
+    font-size: 0.85rem !important;
+    padding: 0.5rem 1rem !important;
+  }
+  
+  /* Hover del botón */
+  #header a.btn-primary:hover,
+  #header a.btn-secondary:hover {
+    background-color: #f1f5f9 !important; /* Gris muy claro */
   }
 </style>
