@@ -37,12 +37,11 @@ export const headerData = {
     },
     {
       text: 'PARA ASESORÍAS',
-      href: getPermalink('/asesorias-colaboradoras'),
+      // CORREGIDO: Apunta a la sección de la Home, no a una página 404
+      href: getPermalink('/#asesorias'), 
     },
     {
       text: 'EQUIPO',
-      // ¡ESTA ES LA CLAVE! 
-      // La almohadilla (#) le dice que baje a la sección, no que cambie de página.
       href: getPermalink('/#equipo'), 
     },
     {
@@ -75,8 +74,7 @@ export const footerData = {
       title: 'Despacho',
       links: [
         { text: 'Sobre Nosotros', href: getPermalink('/#nosotros') },
-        { text: 'Colaboración con Asesorías', href: getPermalink('/asesorias-colaboradoras') },
-        // Aquí también lo corregimos por si acaso
+        { text: 'Colaboración con Asesorías', href: getPermalink('/#asesorias') },
         { text: 'Nuestro Equipo', href: getPermalink('/#equipo') }, 
         { text: 'Contacto', href: getPermalink('/contact') },
       ],
@@ -84,8 +82,9 @@ export const footerData = {
     {
       title: 'Contacto',
       links: [
-        { text: '📍 C/ Salvador Moreno Durán 26, Estepa', href: '#' },
-        { text: '📞 955 21 15 15', href: 'tel:955211515' },
+        // CORREGIDO: Añadido enlace a Google Maps
+        { text: '📍 C/ Salvador Moreno Durán 26, Estepa', href: 'https://www.google.com/maps/search/?api=1&query=C/+Salvador+Moreno+Durán+26,+Estepa' },
+        { text: '📞 955 91 33 70', href: 'tel:955913370' },
         { text: '✉️ info@gestepa.com', href: 'mailto:info@gestepa.com' },
       ],
     },

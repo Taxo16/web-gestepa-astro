@@ -1,34 +1,34 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: GESTEPA ASESORES
+  site: 'https://gestepa.com' # He puesto este dominio por tus emails, cámbialo si es otro
   base: '/'
   trailingSlash: false
 
-  googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
+  googleSiteVerificationId: '' # Puedes poner aquí tu ID de Google si lo tienes, si no déjalo vacío
 
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: GESTEPA ASESORES
+    template: '%s — GESTEPA ASESORES'
+  description: "Despacho profesional de servicios integrales para empresas y asesorías. Especialistas en Laboral, Fiscal, Contable, Jurídico, Extranjería y Ahorro Energético."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: GESTEPA ASESORES
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
+    handle: '@gestepaasesores'
+    site: '@gestepaasesores'
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: es
   textDirection: ltr
 
 apps:
@@ -69,4 +69,4 @@ analytics:
       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'light' # He forzado 'light' para que se vea siempre profesional y limpia (fondo blanco)

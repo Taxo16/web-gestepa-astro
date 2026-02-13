@@ -1,0 +1,154 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Faqs from '~/components/widgets/FAQs.astro';
+
+const metadata = {
+  title: 'Seguros para Empresas | GESTEPA Asesores',
+  description: 'Asesoramiento y gestión de seguros para empresas. Protegemos tu negocio y optimizamos tus costes con un enfoque integral.',
+};
+---
+
+<Layout metadata={metadata}>
+  
+  <Hero
+    tagline="Protección Integral"
+    title="Seguros para Empresas y Autónomos"
+    subtitle="Analizamos tu situación real para ofrecerte las coberturas exactas que necesitas, evitando duplicidades y optimizando el coste de tus pólizas."
+    actions={[
+      { variant: 'primary', text: 'Solicitar Auditoría de Seguros', href: '#contacto' },
+      { text: 'Más información', href: '#servicios' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Seguros para Empresas Gestepa',
+    }}
+  />
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Protección del Negocio',
+        description:
+          'Evitamos carencias de protección que puedan generar problemas graves en el futuro. Tu actividad debe estar blindada.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Optimización de Costes',
+        description:
+          'Revisamos tus pólizas actuales para eliminar coberturas innecesarias y ajustar precios sin perder seguridad.',
+        icon: 'tabler:coin',
+      },
+      {
+        title: 'Continuidad de la Actividad',
+        description:
+          'Diseñamos seguros pensando en que, si ocurre un siniestro, tu empresa no se detenga.',
+        icon: 'tabler:activity',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Asesoramiento Seguros',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        No vendemos pólizas, aseguramos tu tranquilidad
+      </h3>
+      <p>
+        En Gestepa Asesores ofrecemos un servicio integral de asesoramiento y gestión de seguros. 
+        Analizamos cada situación de forma personalizada para proponer las coberturas que <strong>realmente se necesitan</strong>, 
+        evitando tanto seguros innecesarios como faltas de protección.
+      </p>
+      <br />
+      <p class="text-sm text-muted">
+        * Este servicio forma parte de nuestro enfoque de asesoría integral para empresas y despachos profesionales.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Features2
+    id="servicios"
+    title="Soluciones Aseguradoras para tu Empresa"
+    subtitle="Cubrimos todos los riesgos que pueden afectar a tu actividad profesional."
+    columns={3}
+    items={[
+      {
+        title: 'Responsabilidad Civil',
+        description: 'Protege tu patrimonio ante reclamaciones de terceros por daños derivados de tu actividad.',
+        icon: 'tabler:gavel',
+      },
+      {
+        title: 'Multirriesgo Comercio y Pyme',
+        description: 'Cobertura completa para tus instalaciones, maquinaria, mercancías y equipos informáticos.',
+        icon: 'tabler:building-store',
+      },
+      {
+        title: 'Accidentes de Convenio',
+        description: 'Cumple con la normativa laboral asegurando a tus trabajadores según lo exigido en tu sector.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Flotas de Vehículos',
+        description: 'Gestión unificada de los seguros de todos los vehículos de tu empresa para reducir costes.',
+        icon: 'tabler:car',
+      },
+      {
+        title: 'D&O (Directivos)',
+        description: 'Protección para administradores y directivos ante reclamaciones por su gestión empresarial.',
+        icon: 'tabler:tie',
+      },
+      {
+        title: 'Ciberseguridad',
+        description: 'Protégete ante ataques informáticos, robo de datos y paralización de la actividad digital.',
+        icon: 'tabler:lock-access',
+      },
+    ]}
+  />
+
+  <Faqs
+    title="Preguntas Frecuentes"
+    subtitle="Resolvemos tus dudas sobre la gestión de seguros para empresas."
+    items={[
+      {
+        title: '¿Revisáis mis seguros actuales aunque no los haya hecho con vosotros?',
+        description:
+          'Sí. Realizamos una auditoría gratuita de tus pólizas actuales para detectar duplicidades, sobrecostes o carencias importantes de seguridad.',
+      },
+      {
+        title: '¿Trabajáis con una sola compañía?',
+        description:
+          'No. Al igual que en energía, trabajamos con independencia para buscar la opción que mejor se adapte a ti en precio y coberturas, comparando entre las líderes del mercado.',
+      },
+      {
+        title: '¿Qué pasa si tengo un siniestro?',
+        description:
+          'Nosotros nos encargamos de la tramitación y defensa de tus intereses frente a la compañía. No tienes que pelearte con un "call center", hablas directamente con tu asesor de Gestepa.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    id="contacto"
+    title="¿Estás seguro de estar bien asegurado?"
+    subtitle="Déjanos revisar tus pólizas sin compromiso. A menudo encontramos ahorros importantes o coberturas que faltaban."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'CONTACTAR AHORA',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'LLAMAR 955 91 33 70',
+        href: 'tel:955913370',
+        icon: 'tabler:phone',
+      }
+    ]}
+  />
+
+</Layout>

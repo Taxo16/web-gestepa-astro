@@ -1,0 +1,161 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Content from '~/components/widgets/Content.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Faqs from '~/components/widgets/FAQs.astro';
+
+const metadata = {
+  title: 'Extranjería para Empresas | GESTEPA Asesores',
+  description: 'Gestión de permisos de trabajo y residencia para empresas. Facilitamos la contratación de talento internacional con seguridad jurídica.',
+};
+---
+
+<Layout metadata={metadata}>
+  
+  <Hero
+    tagline="Movilidad Internacional"
+    title="Extranjería y Permisos de Trabajo"
+    subtitle="Ayudamos a las empresas a gestionar la incorporación de talento internacional. Simplificamos la burocracia para que tú te centres en el talento."
+    actions={[
+      { variant: 'primary', text: 'Consultar Caso', href: '#contacto' },
+      { text: 'Ver servicios', href: '#servicios' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Extranjería Empresas Gestepa',
+    }}
+  />
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Seguridad Jurídica',
+        description:
+          'Evita sanciones y errores administrativos asegurando que toda la contratación de personal extranjero cumple con la normativa vigente.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Agilidad en los Trámites',
+        description:
+          'Sabemos que los procesos de extranjería son complejos y lentos. Nuestro objetivo es acelerar los tiempos y simplificar la gestión.',
+        icon: 'tabler:hourglass-high',
+      },
+      {
+        title: 'Acompañamiento RRHH',
+        description:
+          'Actuamos como un extensión de tu departamento de Recursos Humanos para resolver cualquier duda sobre la situación legal de tus empleados.',
+        icon: 'tabler:users',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2070&q=80',
+      alt: 'Asesoría Extranjería',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Facilitamos la contratación internacional
+      </h3>
+      <p>
+        En Gestepa Asesores ofrecemos servicios completos de extranjería, orientados <strong>exclusivamente a empresas</strong> que contratan personal extranjero.
+      </p>
+      <br />
+      <p>
+        Sabemos que estos trámites generan incertidumbre. Nuestro equipo se encarga de gestionar permisos, renovaciones y procedimientos administrativos con un acompañamiento cercano y profesional durante todo el proceso.
+      </p>
+      <br />
+      <p class="text-sm text-muted">
+        * Este servicio forma parte de nuestro enfoque de asesoría integral para empresas y despachos profesionales.
+      </p>
+    </Fragment>
+  </Content>
+
+  <Features2
+    id="servicios"
+    title="Gestión Integral de Trámites de Extranjería"
+    subtitle="Cubrimos todas las necesidades administrativas para la regularización de trabajadores."
+    columns={3}
+    items={[
+      {
+        title: 'Permisos de Residencia',
+        description: 'Gestión completa de autorizaciones de residencia iniciales y sus prórrogas.',
+        icon: 'tabler:id',
+      },
+      {
+        title: 'Permisos de Trabajo',
+        description: 'Tramitación de autorizaciones para trabajar por cuenta ajena y personal altamente cualificado.',
+        icon: 'tabler:briefcase',
+      },
+      {
+        title: 'Renovaciones',
+        description: 'Control de plazos y presentación de renovaciones para evitar la irregularidad sobrevenida.',
+        icon: 'tabler:refresh',
+      },
+      {
+        title: 'Nacionalidad Española',
+        description: 'Asesoramiento y tramitación de expedientes de nacionalidad por residencia.',
+        icon: 'tabler:flag',
+      },
+      {
+        title: 'Reagrupación Familiar',
+        description: 'Gestión de trámites para traer a los familiares de tus empleados expatriados.',
+        icon: 'tabler:home-heart',
+      },
+      {
+        title: 'Arraigo y Regularización',
+        description: 'Estudio de viabilidad para regularización por arraigo social, laboral o de formación.',
+        icon: 'tabler:file-check',
+      },
+    ]}
+  />
+
+  <Faqs
+    title="Preguntas Frecuentes"
+    subtitle="Resolvemos las dudas habituales de las empresas sobre contratación internacional."
+    items={[
+      {
+        title: '¿Este servicio es solo para empresas?',
+        description:
+          'Sí, nuestro servicio de extranjería está especializado y orientado principalmente a empresas y departamentos de RRHH que necesitan gestionar la situación legal de sus trabajadores extranjeros.',
+      },
+      {
+        title: '¿Podéis gestionar la contratación de un profesional altamente cualificado?',
+        description:
+          'Por supuesto. Tenemos experiencia en la Ley de Emprendedores y tramitación de permisos para perfiles altamente cualificados, lo que suele agilizar los plazos de resolución.',
+      },
+      {
+        title: '¿Qué ocurre si deniegan un permiso?',
+        description:
+          'Analizamos los motivos de la denegación y, si es viable, interponemos los recursos administrativos correspondientes para defender los intereses de la empresa y el trabajador.',
+      },
+      {
+        title: '¿Os encargáis de las renovaciones?',
+        description:
+          'Sí. Realizamos un seguimiento proactivo de los vencimientos de las tarjetas de tus empleados para presentar las renovaciones en plazo y evitar problemas legales.',
+      },
+    ]}
+  />
+
+  <CallToAction
+    id="contacto"
+    title="Incorpora talento sin fronteras"
+    subtitle="Deja la burocracia en nuestras manos y asegúrate de cumplir con toda la normativa de extranjería."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'CONTACTAR AHORA',
+        href: '/contact',
+        icon: 'tabler:mail',
+      },
+      {
+        text: 'LLAMAR 955 91 33 70',
+        href: 'tel:955913370',
+        icon: 'tabler:phone',
+      }
+    ]}
+  />
+
+</Layout>
