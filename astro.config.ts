@@ -88,6 +88,11 @@ export default defineConfig({
         '~': path.resolve(__dirname, './src'),
       },
     },
+    // AQUÍ ESTÁ LA MAGIA: Definimos las variables para que sean accesibles en el código cliente
+    define: {
+      'import.meta.env.VERCEL_GIT_COMMIT_MESSAGE': JSON.stringify(process.env.VERCEL_GIT_COMMIT_MESSAGE || "Desarrollo Local"),
+      'import.meta.env.VERCEL_GIT_COMMIT_SHA': JSON.stringify(process.env.VERCEL_GIT_COMMIT_SHA?.substring(0, 7) || "dev"),
+    },
   },
 
   adapter: vercel(),

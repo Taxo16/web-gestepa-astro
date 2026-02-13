@@ -24,6 +24,10 @@ export interface Props {
 }
 
 const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+
+// Recuperamos las variables inyectadas desde astro.config.mjs
+const commitMessage = import.meta.env.VERCEL_GIT_COMMIT_MESSAGE;
+const commitHash = import.meta.env.VERCEL_GIT_COMMIT_SHA;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
@@ -98,6 +102,15 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
 
       <div class="text-sm mr-4 dark:text-muted">
         <Fragment set:html={footNote} />
+        
+        <div class="mt-3 pt-2 border-t border-gray-200 dark:border-gray-700 text-[10px] opacity-60 font-mono tracking-wide">
+           <span class="font-bold text-green-600 dark:text-green-500">● LIVE</span> 
+           <span class="mx-1">|</span> 
+           VER: {commitHash} 
+           <span class="mx-1">|</span> 
+           LOG: "{commitMessage}"
+        </div>
+
       </div>
     </div>
   </div>
