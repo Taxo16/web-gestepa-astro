@@ -12,14 +12,14 @@ const metadata = {
 <Layout metadata={metadata}>
   <HeroText 
     tagline="Contacto" 
-    title="Estamos aquí para ayudarte" 
-    subtitle="¿Tienes dudas o necesitas asesoramiento para tu empresa? Contacta con nosotros y nuestro equipo te responderá a la mayor brevedad."
+    title="Estamos cerca de ti" 
+    subtitle="Contamos con una amplia red de oficinas para ofrecerte el mejor servicio presencial, además de nuestro soporte digital."
   />
 
   <ContactUs
     id="form"
     title="Envíanos un mensaje"
-    subtitle="Rellena el siguiente formulario y nos pondremos en contacto contigo para estudiar tu caso."
+    subtitle="Si lo prefieres, rellena este formulario y nuestro equipo te contactará lo antes posible."
     inputs={[
       {
         type: 'text',
@@ -34,7 +34,7 @@ const metadata = {
         placeholder: 'ejemplo@correo.com',
       },
       {
-        type: 'text', // Usamos text para permitir espacios o prefijos
+        type: 'text',
         name: 'phone',
         label: 'Teléfono',
         placeholder: '600 000 000',
@@ -42,48 +42,83 @@ const metadata = {
     ]}
     textarea={{
       label: 'Mensaje',
-      placeholder: 'Cuéntanos qué necesitas...',
+      placeholder: 'Cuéntanos en qué podemos ayudarte...',
     }}
     disclaimer={{
       label:
-        'Al enviar este formulario, aceptas nuestra política de privacidad y el tratamiento de tus datos para gestionar tu consulta.',
+        'Al enviar este formulario, aceptas nuestra política de privacidad para gestionar tu consulta.',
     }}
-    description="Nuestro equipo de soporte suele responder en menos de 24h laborables."
+    description="Solemos responder en menos de 24h laborables."
     button="Enviar Consulta"
   />
 
   <Features2
-    title="Nuestras vías de contacto"
-    subtitle="Si prefieres un trato más directo, puedes encontrarnos aquí:"
+    title="Nuestras Oficinas"
+    subtitle="Encuentra tu delegación más cercana. Estaremos encantados de recibirte."
+    columns={3}
     items={[
       {
-        title: 'Teléfono',
-        description: '955 91 33 70',
-        icon: 'tabler:phone',
+        title: 'Estepa (Sede Central)',
+        description: 'C/ Salvador Moreno Durán 26, Local A<br/>41560 Estepa (Sevilla)',
+        icon: 'tabler:home',
         callToAction: {
-            text: 'Llamar ahora',
-            href: 'tel:955913370',
+            text: 'Ver en mapa',
+            href: 'https://www.google.com/maps/search/?api=1&query=C/+Salvador+Moreno+Durán+26,+Estepa',
+            target: '_blank',
             variant: 'link',
         }
       },
       {
-        title: 'Correo Electrónico',
-        description: 'info@gestepa.com',
-        icon: 'tabler:mail',
-        callToAction: {
-            text: 'Escribir email',
-            href: 'mailto:info@gestepa.com',
-            variant: 'link',
-        }
-      },
-      {
-        title: 'Nuestra Oficina',
-        description: 'C/ Salvador Moreno Durán 26, 41560 Estepa (Sevilla)',
+        title: 'Badolatosa',
+        description: 'Avenida de Cuba 74<br/>41570 Badolatosa (Sevilla)',
         icon: 'tabler:map-pin',
         callToAction: {
             text: 'Ver en mapa',
-            href: 'https://maps.google.com/?q=Gestepa+Asesores+Estepa', // Enlace genérico a Google Maps
+            href: 'https://www.google.com/maps/search/?api=1&query=Avenida+de+Cuba+74,+Badolatosa',
             target: '_blank',
+            variant: 'link',
+        }
+      },
+      {
+        title: 'Málaga',
+        description: 'Plaza Uncibay nº3, 2.8<br/>29008 Málaga',
+        icon: 'tabler:map-pin',
+        callToAction: {
+            text: 'Ver en mapa',
+            href: 'https://www.google.com/maps/search/?api=1&query=Plaza+Uncibay+3,+Málaga',
+            target: '_blank',
+            variant: 'link',
+        }
+      },
+      {
+        title: 'Sevilla (La Negrilla)',
+        description: 'Pol. Ind. La Negrilla, C/ Encuadernación 36<br/>41016 Sevilla',
+        icon: 'tabler:building-factory',
+        callToAction: {
+            text: 'Ver en mapa',
+            href: 'https://www.google.com/maps/search/?api=1&query=Calle+Encuadernación+36,+Sevilla',
+            target: '_blank',
+            variant: 'link',
+        }
+      },
+      {
+        title: 'Sevilla (República Argentina)',
+        description: 'Av. República Argentina 13, Accb<br/>41011 Sevilla',
+        icon: 'tabler:building',
+        callToAction: {
+            text: 'Ver en mapa',
+            href: 'https://www.google.com/maps/search/?api=1&query=Av.+República+Argentina+13,+Sevilla',
+            target: '_blank',
+            variant: 'link',
+        }
+      },
+      {
+        title: 'Atención Telefónica y Email',
+        description: '📞 955 91 33 70<br/>✉️ info@gestepa.com',
+        icon: 'tabler:headset',
+        callToAction: {
+            text: 'Llamar ahora',
+            href: 'tel:955913370',
             variant: 'link',
         }
       },
