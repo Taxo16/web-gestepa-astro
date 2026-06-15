@@ -3,22 +3,26 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'INICIO',
+      text: 'Inicio',
       href: getPermalink('/'),
     },
     {
-      text: 'SERVICIOS',
+      text: 'Servicios',
       links: [
         {
-          text: 'Asesoría Integral (Fiscal, Laboral, Contable)',
+          text: 'Asesoría laboral, fiscal y contable',
           href: getPermalink('/#servicios'), 
         },
         {
-          text: 'Departamento Jurídico',
+          text: 'Departamento jurídico',
           href: getPermalink('/juridico'),
         },
         {
-          text: 'Seguros para Empresas',
+          text: 'Ahorro energético',
+          href: getPermalink('/ahorro-energetico'),
+        },
+        {
+          text: 'Seguros',
           href: getPermalink('/seguros'),
         },
         {
@@ -26,26 +30,25 @@ export const headerData = {
           href: getPermalink('/extranjeria'),
         },
         {
-          text: 'Tráfico y Vehículos',
+          text: 'Transferencias de vehículos',
           href: getPermalink('/vehiculos'),
+        },
+        {
+          text: 'Asesorías colaboradoras',
+          href: getPermalink('/#asesorias'),
         },
       ],
     },
     {
-      text: 'AHORRO ENERGÉTICO',
-      href: getPermalink('/ahorro-energetico'),
-    },
-    {
-      text: 'PARA ASESORÍAS',
-      // CORREGIDO: Apunta a la sección de la Home, no a una página 404
-      href: getPermalink('/#asesorias'), 
-    },
-    {
-      text: 'EQUIPO',
+      text: 'Equipo',
       href: getPermalink('/#equipo'), 
     },
     {
-      text: 'CONTACTO',
+      text: 'Opiniones / Casos de éxito',
+      href: getPermalink('/#casos-de-exito'),
+    },
+    {
+      text: 'Contacto',
       href: getPermalink('/contact'),
     },
   ],

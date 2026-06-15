@@ -86,15 +86,18 @@ import '@fontsource-variable/raleway';
   /* --- HEADER (MENÚ) FORZADO A AZUL CORPORATIVO --- */
   
   /* 1. Fondo Azul Corporativo (#1e425e) siempre */
-  #header {
+  #header,
+  #header.sticky,
+  #header.scroll {
     background-color: #1e425e !important;
     border-bottom: none !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
   }
   
-  /* Asegurar que si hace scroll siga siendo azul */
-  #header.sticky {
-    background-color: #1e425e !important;
+  /* Anular el fondo blanco que aplica Tailwind al hacer scroll */
+  #header.scroll > div:first-child {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
   }
 
   /* 2. Todos los textos del menú en BLANCO */
@@ -122,6 +125,40 @@ import '@fontsource-variable/raleway';
   #header nav a:hover {
     color: rgb(186, 230, 253) !important; /* un azul cielo muy claro */
     opacity: 1 !important;
+  }
+
+  /* 5. Botones Principales del Hero (Forzados por CSS) */
+  .hero-btn-white-border {
+    border: 2px solid white !important;
+    padding-top: 0.6rem !important;     /* Menos altos */
+    padding-bottom: 0.6rem !important;  /* Menos altos */
+    padding-left: 2rem !important;      /* Más anchos */
+    padding-right: 2rem !important;     /* Más anchos */
+    width: 100% !important;
+    max-width: 320px !important;        /* Control de ancho máximo */
+  }
+
+  .hero-btn-white-border svg {
+    width: 2rem !important;           /* Iconos más grandes (32px) */
+    height: 2rem !important;          /* Iconos más grandes (32px) */
+    margin-left: 0.75rem !important;  /* Espacio entre el texto y el icono */
+  }
+
+  /* El rayo (bolt) es muy estrecho en tabler-icons, lo escalamos para compensar */
+  .hero-btn-white-border svg[data-icon="tabler:bolt"] {
+    transform: scale(1.4);
+    stroke-width: 1.5; /* Lo hacemos un pelín más grueso al escalar para que no pierda fuerza */
+  }
+
+  /* 3. Menús Desplegables (Dropdowns) */
+  #header .dropdown-menu {
+    background-color: #1e425e !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  #header .dropdown-menu a:hover {
+    background-color: #153045 !important; /* Azul más oscuro al pasar el ratón */
+    color: rgb(186, 230, 253) !important;
   }
 
   /* 3. Botones de Acción (Acceso Clientes) */

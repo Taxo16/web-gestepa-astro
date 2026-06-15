@@ -4,11 +4,16 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Faqs from '~/components/widgets/FAQs.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+// IMPORTS DE IMÁGENES PROPIAS (Sustituyen a stock)
+import tarjetaImg from '~/assets/images/secciones/gestepa_tarjeta_1.jpg';
+import corporateMugImg from '~/assets/images/secciones/gestepa_scene_08_corporate_mug.png';
+import businessCardImg from '~/assets/images/secciones/gestepa_business_card.png';
 
 const metadata = {
   title: 'Seguros para Empresas | GESTEPA Asesores',
-  description: 'Asesoramiento y gestión de seguros para empresas. Protegemos tu negocio y optimizamos tus costes con un enfoque integral.',
+  description: 'Asesoramiento y gestión de seguros para empresas y autónomos. Protegemos tu negocio y optimizamos tus costes con un enfoque integral.',
 };
 ---
 
@@ -23,8 +28,8 @@ const metadata = {
       { text: 'Más información', href: '#servicios' },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Seguros para Empresas Gestepa',
+      src: tarjetaImg,
+      alt: 'Seguros Empresas GESTEPA',
     }}
   />
 
@@ -51,8 +56,8 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Asesoramiento Seguros',
+      src: businessCardImg,
+      alt: 'Enfoque GESTEPA Seguros',
     }}
   >
     <Fragment slot="content">
@@ -110,7 +115,7 @@ const metadata = {
     ]}
   />
 
-  <Faqs
+  <FAQs
     title="Preguntas Frecuentes"
     subtitle="Resolvemos tus dudas sobre la gestión de seguros para empresas."
     items={[
@@ -149,6 +154,14 @@ const metadata = {
         icon: 'tabler:phone',
       }
     ]}
-  />
+  >
+    <Fragment slot="bg">
+      <img 
+        src={corporateMugImg.src} 
+        class="absolute inset-0 w-full h-full object-cover opacity-10" 
+        alt="Tranquilidad GESTEPA"
+      />
+    </Fragment>
+  </CallToAction>
 
 </Layout>

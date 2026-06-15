@@ -4,7 +4,12 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Faqs from '~/components/widgets/FAQs.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+// IMPORTS DE IMÁGENES PROPIAS (Sustituyen a stock)
+import tarjeta2Img from '~/assets/images/secciones/gestepa_tarjeta_2.jpg';
+import puertaImg from '~/assets/images/secciones/gestepa_puerta.jpg';
+import corporateMugImg from '~/assets/images/secciones/gestepa_scene_08_corporate_mug.png';
 
 const metadata = {
   title: 'Extranjería para Empresas | GESTEPA Asesores',
@@ -23,8 +28,8 @@ const metadata = {
       { text: 'Ver servicios', href: '#servicios' },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Extranjería Empresas Gestepa',
+      src: tarjeta2Img,
+      alt: 'Extranjería Empresas GESTEPA',
     }}
   />
 
@@ -33,26 +38,23 @@ const metadata = {
     items={[
       {
         title: 'Seguridad Jurídica',
-        description:
-          'Evita sanciones y errores administrativos asegurando que toda la contratación de personal extranjero cumple con la normativa vigente.',
+        description: 'Evita sanciones y errores administrativos asegurando que toda la contratación de personal extranjero cumple con la normativa vigente.',
         icon: 'tabler:shield-lock',
       },
       {
         title: 'Agilidad en los Trámites',
-        description:
-          'Sabemos que los procesos de extranjería son complejos y lentos. Nuestro objetivo es acelerar los tiempos y simplificar la gestión.',
+        description: 'Sabemos que los procesos de extranjería son complejos y lentos. Nuestro objetivo es acelerar los tiempos y simplificar la gestión.',
         icon: 'tabler:hourglass-high',
       },
       {
         title: 'Acompañamiento RRHH',
-        description:
-          'Actuamos como un extensión de tu departamento de Recursos Humanos para resolver cualquier duda sobre la situación legal de tus empleados.',
+        description: 'Actuamos como un extensión de tu departamento de Recursos Humanos para resolver cualquier duda sobre la situación legal de tus empleados.',
         icon: 'tabler:users',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Asesoría Extranjería',
+      src: puertaImg,
+      alt: 'Contacto GESTEPA Extranjería',
     }}
   >
     <Fragment slot="content">
@@ -112,7 +114,7 @@ const metadata = {
     ]}
   />
 
-  <Faqs
+  <FAQs
     title="Preguntas Frecuentes"
     subtitle="Resolvemos las dudas habituales de las empresas sobre contratación internacional."
     items={[
@@ -156,6 +158,14 @@ const metadata = {
         icon: 'tabler:phone',
       }
     ]}
-  />
+  >
+    <Fragment slot="bg">
+      <img 
+        src={corporateMugImg.src} 
+        class="absolute inset-0 w-full h-full object-cover opacity-10" 
+        alt="Tranquilidad GESTEPA"
+      />
+    </Fragment>
+  </CallToAction>
 
 </Layout>

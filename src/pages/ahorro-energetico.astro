@@ -8,6 +8,10 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
+import bgHeroImg from '~/assets/images/secciones/gestepa_cristal.jpg';
+import stepsImg from '~/assets/images/secciones/gestepa_scene_07_tablet_financials.png';
+import contentImg from '~/assets/images/secciones/gestepa_01_smartphone.png';
+
 const metadata = {
   title: 'Ahorro Energético para Empresas | GESTEPA',
   description: 'Estudio gratuito de luz y gas. Trabajamos con más de 40 comercializadoras para reducir tus costes entre un 5% y un 20%.',
@@ -44,7 +48,7 @@ const metadata = {
     <Fragment slot="bg">
        <div class="absolute inset-0 bg-emerald-50/50 dark:bg-slate-900 z-10"></div>
        <img 
-        src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1920&q=80" 
+        src={bgHeroImg.src} 
         class="absolute inset-0 w-full h-full object-cover -z-10 opacity-30" 
         alt="Ahorro energético"
       />
@@ -101,7 +105,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80',
+      src: stepsImg,
       alt: 'Gráfico de ahorro',
     }}
   />
@@ -124,10 +128,16 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?auto=format&fit=crop&w=1000&q=80',
+      src: contentImg,
       alt: 'Beneficios empresa',
     }}
-  />
+  >
+    <Fragment slot="content">
+      <p class="text-sm text-muted mt-4">
+        * Este servicio forma parte de nuestro enfoque de asesoría integral para empresas y despachos profesionales.
+      </p>
+    </Fragment>
+  </Content>
 
   <Testimonials
     title="Resultados Reales"

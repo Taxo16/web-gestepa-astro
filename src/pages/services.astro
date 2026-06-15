@@ -6,6 +6,10 @@ import Hero from '~/components/widgets/Hero.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
+import bgHero from '~/assets/images/secciones/gestepa_03_logo_blur_background.png';
+import c1Img from '~/assets/images/secciones/gestepa_scene_08_corporate_mug.png';
+import c2Img from '~/assets/images/secciones/gestepa_02_laptop.png';
+
 const metadata = {
   title: 'Services',
 };
@@ -20,7 +24,7 @@ const metadata = {
     subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
     actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
+      src: bgHero,
       alt: 'AstroWind Hero Image',
     }}
   />
@@ -118,7 +122,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
+      src: c1Img,
       alt: 'Features Image',
     }}
   >
@@ -158,7 +162,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+      src: c2Img,
       alt: 'Benefits Image',
     }}
   >

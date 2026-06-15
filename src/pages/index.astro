@@ -5,7 +5,8 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro'; // <--- IMPORTADO NUEVO
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 import Image from '~/components/common/Image.astro';
 
 // IMPORTS DE IMÁGENES
@@ -18,6 +19,15 @@ import joseCarlosImg from '~/assets/images/personal/JOSE CARLOS.jpg';
 import martaImg from '~/assets/images/personal/MARTA.jpg';
 import nataliaImg from '~/assets/images/personal/NATALIA.jpg';
 import patriciaImg from '~/assets/images/personal/PATRICIA.jpg';
+
+// NUEVOS IMPORTS DE IMÁGENES PROPIAS (Actualizado Hero)
+import meetingRoomImg from '~/assets/images/secciones/gestepa_04_meeting_room.png';
+import logoBlurImg from '~/assets/images/secciones/gestepa_03_logo_blur_background.png';
+import laptopImg from '~/assets/images/secciones/gestepa_02_laptop.png';
+import folderImg from '~/assets/images/secciones/gestepa_scene_06_folder.png';
+
+// NUEVA IMAGEN HERO SELECCIONADA POR EL USUARIO
+import officeHeroImg from '~/assets/images/secciones/gestepa_oficina.jpg'; 
 
 const metadata = {
   title: 'GESTEPA | Asesoría Integral para Empresas y Despachos',
@@ -34,45 +44,50 @@ const metadata = {
         text: 'CONTACTA AHORA',
         href: '/contact',
         icon: 'tabler:mail',
+        class: 'hero-btn-white-border',
       },
       {
+        variant: 'primary',
         text: 'SOLICITA ASESORAMIENTO',
         href: '#servicios',
-        class: 'bg-white text-blue-900 hover:bg-blue-50 font-bold',
+        class: 'hero-btn-white-border',
       },
       {
-        text: 'AHORRO ENERGÉTICO',
+        variant: 'primary',
+        text: 'Ahorro energético para tu empresa',
         href: '/ahorro-energetico',
         icon: 'tabler:bolt',
-        class: 'bg-emerald-600 text-white hover:bg-emerald-700 font-bold shadow-lg',
+        class: 'hero-btn-white-border',
       },
     ]}
   >
     <Fragment slot="title">
-      <span class="text-white font-black uppercase tracking-widest text-shadow-gestepa">
-        GESTEPA ASESORES
+      <span class="block text-sm md:text-base text-blue-200 font-semibold tracking-widest uppercase mb-2">Gestepa Asesores</span>
+      <span class="text-white font-black leading-tight text-shadow-gestepa">
+        Asesoría Integral y Estratégica para tu Empresa
       </span> 
       <br />
       
-      <span class="text-blue-200 font-black uppercase tracking-widest text-shadow-gestepa highlight min-h-[1.2em] inline-block pl-4 md:pl-6">
+      <span class="text-blue-200 font-black uppercase tracking-widest text-shadow-gestepa highlight min-h-[1.2em] inline-flex items-center mt-4">
         <span id="typewriter-text"></span>
-        <span id="cursor" class="animate-pulse text-white">|</span>
+        <span id="cursor" class="animate-pulse text-white ml-1">|</span>
       </span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="text-white text-lg font-medium text-shadow-gestepa tracking-wide">
+      <span class="text-gray-100 text-lg font-medium tracking-wide max-w-3xl mx-auto block">
         Somos un despacho profesional de <span class="text-blue-200 font-bold">servicios integrales</span>. 
         Ofrecemos soluciones completas a <span class="font-bold text-white uppercase">empresas</span> y soporte técnico especializado a <span class="font-bold text-white uppercase">otras asesorías</span>.
       </span>
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-[#1e425e]/30 dark:bg-slate-900/40 z-10"></div>
+      <div class="absolute inset-0 bg-[#0f212f]/80 z-10 mix-blend-multiply"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#1e425e]/90 to-transparent z-10"></div>
       <img 
-        src={heroImage.src}
+        src={officeHeroImg.src} 
         class="absolute inset-0 w-full h-full object-cover -z-10" 
-        alt="Oficina Gestepa"
+        alt="Oficinas Gestepa Asesores"
       />
     </Fragment>
   </Hero>
@@ -100,30 +115,27 @@ const metadata = {
   />
 
   <Content
-    id="nosotros"
     isReversed
-    tagline="Nuestra Filosofía"
+    tagline="Quiénes Somos"
     title="GESTEPA ASESORES"
-    items={[
-      {
-        title: 'Visión Global',
-        description:
-          'Nuestro equipo trabaja de forma coordinada para anticiparse a problemas en todos los ámbitos de tu empresa.',
-      },
-      {
-        title: 'Seguridad',
-        description:
-          'Dominamos toda la normativa vigente. Déjate guiar por expertos y evita riesgos innecesarios.',
-      },
-    ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Reunión GESTEPA',
+      src: logoBlurImg,
+      alt: 'Gestepa Asesores',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Un único interlocutor</h3>
-      Ofrecemos un servicio integral para la tranquilidad de tu empresa.
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-4">
+        Servicios integrales para empresas y asesorías
+      </h3>
+      <p class="mb-4 text-muted dark:text-slate-400">
+        En <strong>Gestepa Asesores</strong> somos un despacho profesional de servicios integrales, especializado en ofrecer soluciones completas y coordinadas a empresas y a otros despachos y asesorías profesionales.
+      </p>
+      <p class="mb-4 text-muted dark:text-slate-400">
+        Además de trabajar directamente con empresas, en Gestepa Asesores prestamos apoyo profesional a otras asesorías que necesitan reforzar o incorporar servicios de asesoría fiscal y laboral, actuando como soporte técnico especializado.
+      </p>
+      <p class="text-muted dark:text-slate-400">
+        Colaboramos con absoluto rigor profesional, confidencialidad y coordinación, permitiendo a otros despachos mejorar el servicio que ofrecen a sus clientes sin necesidad de ampliar estructura interna.
+      </p>
     </Fragment>
 
     <Fragment slot="bg">
@@ -141,41 +153,120 @@ const metadata = {
     ]}
   />
 
+  <Content
+    id="enfoque-integral"
+    tagline="Nuestro Valor Diferencial"
+    title="Un servicio integral para la tranquilidad de tu empresa"
+    image={{
+      src: meetingRoomImg,
+      alt: 'Servicio Integral Gestepa',
+    }}
+  >
+    <Fragment slot="content">
+      <p class="mb-4 text-muted dark:text-slate-400">
+        En <strong>Gestepa Asesores</strong> ofrecemos un servicio integral, lo que significa que empresas y asesorías no necesitan recurrir a distintos profesionales o despachos para cubrir sus necesidades.
+      </p>
+      <p class="mb-4 text-muted dark:text-slate-400">
+        Nuestro equipo trabaja de forma coordinada para ofrecer una visión global, anticiparse a problemas y proponer soluciones eficientes en todos los ámbitos que afectan a una empresa o despacho profesional.
+      </p>
+      <p class="mb-4 text-muted dark:text-slate-400">
+        Nuestro valor diferencial es que integramos en un mismo despacho todos los servicios clave que una empresa o asesoría necesita, ofreciendo una gestión eficiente, segura y perfectamente coordinada.
+      </p>
+      <p class="text-muted dark:text-slate-400">Esto se traduce en:</p>
+      <ul class="list-disc ml-6 mt-2 font-semibold text-muted dark:text-slate-400">
+        <li>Mayor control</li>
+        <li>Menos errores</li>
+        <li>Ahorro de tiempo</li>
+        <li>Ahorro económico</li>
+        <li>Tranquilidad y seguridad</li>
+      </ul>
+    </Fragment>
+  </Content>
+
   <Features
-    id="servicios"
-    tagline="Servicios"
-    title="CATÁLOGO DE SERVICIOS INTEGRALES"
-    subtitle="Si estás buscando ayuda, nosotros sabemos asesorarte con todo detalle."
+    id="beneficios-integral"
+    title="Beneficios del Servicio Integral"
+    columns={3}
     items={[
       {
-        title: 'Asesoría Laboral',
-        description: 'Gestión de contratos, nóminas y seguros sociales con máxima precisión.',
+        title: 'Un único despacho',
+        description: 'Para todas las gestiones de la empresa.',
         icon: 'tabler:building-bank',
       },
       {
-        title: 'Asesoría Fiscal',
-        description: 'Cumplimiento óptimo de impuestos ante la administración tributaria.',
-        icon: 'tabler:gavel',
+        title: 'Un solo interlocutor',
+        description: 'Que conoce el negocio de forma global.',
+        icon: 'tabler:user-check',
       },
       {
-        title: 'Área Contable',
-        description: 'Libros oficiales, balances, cuentas anuales y registro mercantil.',
+        title: 'Coordinación Total',
+        description: 'Entre áreas laboral, fiscal, jurídica, seguros y energía.',
+        icon: 'tabler:arrows-join',
+      },
+      {
+        title: 'Ahorro de tiempo y costes',
+        description: 'Optimizando todos los recursos de la empresa.',
+        icon: 'tabler:pig-money',
+      },
+      {
+        title: 'Mayor seguridad',
+        description: 'En la toma de decisiones empresariales.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Soluciones adaptadas',
+        description: 'A empresas y asesorías profesionales colaboradoras.',
+        icon: 'tabler:bulb',
+      },
+    ]}
+  />
+
+  <Features
+    id="servicios"
+    tagline="Áreas de Servicio Integradas"
+    title="Nuestro Catálogo de Servicios"
+    subtitle="Centralizamos todas tus gestiones para evitar errores derivados de la falta de coordinación."
+    columns={3}
+    items={[
+      {
+        title: 'Asesoría Laboral',
+        description: 'Gestión de contratos, nóminas y seguros sociales.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Asesoría Fiscal',
+        description: 'Cumplimiento óptimo de impuestos ante la administración.',
+        icon: 'tabler:file-invoice',
+      },
+      {
+        title: 'Asesoría Contable',
+        description: 'Libros oficiales, balances y cuentas anuales.',
         icon: 'tabler:calculator',
       },
       {
-        title: 'Asesoría Jurídica',
-        description: 'Soluciones legales en normativas, leyes y defensa jurídica.',
+        title: 'Departamento Jurídico',
+        description: 'Soluciones legales y defensa jurídica especializada.',
         icon: 'tabler:scale',
       },
       {
-        title: 'Ahorro Energético',
-        description: 'Estudio gratuito de facturas de luz y gas con más de 40 comercializadoras.',
-        icon: 'tabler:bolt', 
+        title: 'Seguros',
+        description: 'Optimización de costes y protección de tu negocio.',
+        icon: 'tabler:shield',
       },
       {
-        title: 'Extranjería y Vehículos',
-        description: 'Gestión de permisos de residencia, trabajo y transferencias de vehículos.',
+        title: 'Extranjería',
+        description: 'Gestión de permisos y trámites para trabajadores extranjeros.',
         icon: 'tabler:world',
+      },
+      {
+        title: 'Transferencias de vehículos',
+        description: 'Gestión ágil de trámites de tráfico y vehículos.',
+        icon: 'tabler:car',
+      },
+      {
+        title: 'Ahorro Energético en luz y gas',
+        description: 'Estudio gratuito para reducir el coste energético.',
+        icon: 'tabler:bolt',
       },
     ]}
   />
@@ -183,32 +274,40 @@ const metadata = {
   <Content
     isReversed
     id="asesorias"
-    tagline="Colaboración B2B"
-    title="Soporte técnico para otras Asesorías"
+    tagline="Servicio Estratégico B2B"
+    title="Asesoramiento especializado para despachos profesionales"
     items={[
       {
-        title: 'Marca Blanca y Confidencialidad',
-        description: 'Nos adaptamos a tu forma de trabajar con absoluta discreción y rigor técnico.',
+        title: 'Soporte fiscal y laboral especializado',
+        description: 'Incorpora nuevos servicios o refuerza tu capacidad técnica con nuestros especialistas.',
+        icon: 'tabler:tie',
       },
       {
-        title: 'Sin costes fijos',
-        description: 'Amplía tu cartera de servicios sin aumentar tu estructura de personal.',
+        title: 'Sin ampliar estructura interna',
+        description: 'Externaliza áreas concretas y mejora el servicio sin aumentar costes fijos.',
+        icon: 'tabler:chart-arrows',
       },
       {
-        title: 'Especialización',
-        description: 'Actuamos como tu departamento técnico en áreas fiscal, laboral o jurídica.',
+        title: 'Confidencialidad garantizada',
+        description: 'Trabajamos con absoluto rigor y coordinación, adaptándonos a tu forma de trabajar.',
+        icon: 'tabler:lock',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2070&q=80',
-      alt: 'Colaboración entre asesorías',
+      src: folderImg,
+      alt: 'Apoyo a Asesorías',
     }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
-        ¿Eres un despacho profesional?
+        Apoyo profesional a otras asesorías
       </h3>
-      Ayudamos a otros despachos a crecer ofreciendo soporte técnico especializado en áreas donde necesitan refuerzo.
+      <p class="mb-4 text-muted dark:text-slate-400">
+        En Gestepa Asesores contamos con amplia experiencia prestando servicios de apoyo y asesoramiento técnico a otras asesorías y despachos profesionales, especialmente en las áreas fiscal y laboral.
+      </p>
+      <p class="text-muted dark:text-slate-400">
+        Este servicio está dirigido a asesorías que desean mejorar la calidad del servicio a sus clientes finales, incorporando nuevos servicios o reforzando su capacidad técnica.
+      </p>
     </Fragment>
 
     <Fragment slot="bg">
@@ -221,7 +320,7 @@ const metadata = {
     subtitle="Resultados comprobables en empresas que confían en nosotros"
     testimonials={[
       {
-        testimonial: 'Empresa del sector servicios redujo su factura eléctrica en un 18% tras el estudio energético, manteniendo el mismo consumo y sin cortes en el suministro.',
+        testimonial: 'Empresa del sector servicios redujo su factura eléctrica en un 18% tras el estudio energético realizado por Gestepa, manteniendo el mismo consumo y sin interrupciones en el suministro.',
         name: 'Sector Servicios',
         job: 'Ahorro Energético',
         image: {
@@ -272,42 +371,12 @@ const metadata = {
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {
           [
-            // 1. Anastasio
-            { 
-              name: 'Anastasio', 
-              role: 'Director General', 
-              img: anastasioImg 
-            },
-            // 2. José Carlos
-            { 
-              name: 'José Carlos', 
-              role: 'Responsable de Coordinación y Operaciones', 
-              img: joseCarlosImg 
-            },
-            // 3. Natalia Martín
-            { 
-              name: 'Natalia Martín', 
-              role: 'Responsable Área Fiscal y Contable', 
-              img: nataliaImg 
-            },
-            // 4. Irene Prieto
-            { 
-              name: 'Irene Prieto', 
-              role: 'Especialista del Área Laboral', 
-              img: ireneImg 
-            },
-            // 5. Marta Muñoz
-            { 
-              name: 'Marta Muñoz', 
-              role: 'Responsable del Área Laboral', 
-              img: martaImg 
-            },
-            // 6. Silvia Patricia Rueda (Usamos la foto de PATRICIA.jpg)
-            { 
-              name: 'Silvia Patricia Rueda', 
-              role: 'Responsable de Servicios Corporativos', 
-              img: patriciaImg 
-            },
+            { name: 'Anastasio León', role: 'Director General', img: anastasioImg },
+            { name: 'José Carlos León', role: 'Responsable de Coordinación y Operaciones', img: joseCarlosImg },
+            { name: 'Natalia Martín', role: 'Responsable Área Fiscal y Contable', img: nataliaImg },
+            { name: 'Irene Prieto', role: 'Especialista del Área Laboral', img: ireneImg },
+            { name: 'Marta Muñoz', role: 'Responsable del Área Laboral', img: martaImg },
+            { name: 'Silvia Patricia Rueda', role: 'Responsable de Servicios Corporativos', img: patriciaImg },
           ].map((member) => (
             <div class="group flex flex-col items-center bg-white dark:bg-slate-900 rounded-xl shadow-lg p-6 text-center border border-gray-100 dark:border-gray-700 hover:shadow-xl transition duration-300">
               <div class="relative mb-4">
@@ -349,6 +418,45 @@ const metadata = {
     </Fragment>
   </CallToAction>
 
+  <FAQs
+    title="Preguntas Frecuentes sobre Ahorro Energético"
+    subtitle="Resolvemos tus dudas sobre nuestro servicio gratuito y honesto para empresas."
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: '¿El estudio de ahorro energético tiene algún coste?',
+        description:
+          'No. El estudio, la gestión y el seguimiento son totalmente gratuitos para la empresa. Nuestro objetivo es optimizar tus costes, no generarte nuevos.',
+      },
+      {
+        title: '¿Me van a cambiar de compañía aunque no me convenga?',
+        description:
+          'Rotundamente no. If tras el estudio consideramos que tu factura actual ya está optimizada, te lo comunicamos con honestidad y no realizamos ningún cambio.',
+      },
+      {
+        title: '¿Con qué comercializadoras trabajáis?',
+        description:
+          'Trabajamos con más de 40 comercializadoras, tanto grandes como alternativas. No estamos vinculados a ninguna en concreto, lo que nos garantiza independencia total.',
+      },
+      {
+        title: '¿Tengo que ocuparme yo de los trámites del cambio?',
+        description:
+          'No. En Gestepa nos encargamos de todo el proceso: estudio, propuesta, cambio de titular, cuentas bancarias y cualquier gestión administrativa necesaria.',
+      },
+      {
+        title: '¿El cambio de luz o gas puede causar cortes?',
+        description:
+          'No. El cambio de comercializadora es un trámite administrativo que no implica cortes de suministro ni cambios físicos en la instalación.',
+      },
+      {
+        title: '¿Revisáis la factura solo una vez?',
+        description:
+          'No. Realizamos seguimiento y revisiones periódicas para seguir buscando mejoras año tras año, garantizando una optimización continua.',
+      },
+    ]}
+  />
+
   <Hero id="frase">
     <Fragment slot="title">
       <span class="text-3xl md:text-4xl font-serif italic text-gray-700 dark:text-gray-300">
@@ -372,7 +480,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=2015&q=80',
+      src: laptopImg,
       alt: 'Tecnología GESTEPA',
     }}
   >
@@ -390,7 +498,7 @@ const metadata = {
         icon: 'tabler:mail',
       },
       {
-        text: 'LLAMAR 955 21 15 15',
+        text: 'LLAMAR 955 91 33 70',
         href: 'tel:955913370',
         icon: 'tabler:phone',
       }
@@ -407,7 +515,7 @@ const metadata = {
 </Layout>
 
 <script>
-  // FRASES ESTRATÉGICAS B2B
+  // NUEVAS FRASES ESTRATÉGICAS B2B
   const phrases = [
     "SERVICIO INTEGRAL",
     "PARA EMPRESAS",
@@ -419,40 +527,53 @@ const metadata = {
   const deletingSpeed = 50;
   const pauseTime = 2000;
   
-  let currentPhraseIndex = 0;
-  let currentCharIndex = 0;
-  let isDeleting = false;
+  let typewriterTimeout = null;
   
-  const textElement = document.getElementById('typewriter-text');
-  
-  function type() {
+  function initTypewriter() {
+    // Limpiamos cualquier timeout anterior para evitar solapamientos
+    if (typewriterTimeout) clearTimeout(typewriterTimeout);
+
+    let currentPhraseIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    
+    // Obtenemos el elemento nuevo renderizado tras la transición
+    const textElement = document.getElementById('typewriter-text');
     if (!textElement) return;
 
-    const currentPhrase = phrases[currentPhraseIndex];
-    
-    if (isDeleting) {
-      textElement.textContent = currentPhrase.substring(0, currentCharIndex - 1);
-      currentCharIndex--;
-    } else {
-      textElement.textContent = currentPhrase.substring(0, currentCharIndex + 1);
-      currentCharIndex++;
+    function type() {
+      // Volvemos a buscar el elemento por si la página ha cambiado
+      const el = document.getElementById('typewriter-text');
+      if (!el) return; // Si ya no está en el DOM, detenemos la animación
+
+      const currentPhrase = phrases[currentPhraseIndex];
+      
+      if (isDeleting) {
+        el.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+        currentCharIndex--;
+      } else {
+        el.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+      }
+
+      let typeSpeed = isDeleting ? deletingSpeed : typingSpeed;
+
+      if (!isDeleting && currentCharIndex === currentPhrase.length) {
+        typeSpeed = pauseTime;
+        isDeleting = true;
+      } else if (isDeleting && currentCharIndex === 0) {
+        isDeleting = false;
+        currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+        typeSpeed = 500;
+      }
+
+      typewriterTimeout = setTimeout(type, typeSpeed);
     }
 
-    let typeSpeed = isDeleting ? deletingSpeed : typingSpeed;
-
-    if (!isDeleting && currentCharIndex === currentPhrase.length) {
-      typeSpeed = pauseTime;
-      isDeleting = true;
-    } else if (isDeleting && currentCharIndex === 0) {
-      isDeleting = false;
-      currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-      typeSpeed = 500;
-    }
-
-    setTimeout(type, typeSpeed);
+    typewriterTimeout = setTimeout(type, 1000);
   }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(type, 1000);
-  });
+  // Escuchamos el evento astro:page-load en lugar de DOMContentLoaded
+  // Esto hace que el script se vuelva a ejecutar al volver a la página
+  document.addEventListener('astro:page-load', initTypewriter);
 </script>
