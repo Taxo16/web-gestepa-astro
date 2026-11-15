@@ -87,8 +87,8 @@ export const footerData = {
       links: [
         // CORREGIDO: Añadido enlace a Google Maps
         { text: '📍 C/ Salvador Moreno Durán 26, Estepa', href: 'https://www.google.com/maps/search/?api=1&query=C/+Salvador+Moreno+Durán+26,+Estepa' },
-        { text: '📞 955 91 33 70', href: 'tel:955913370' },
-        { text: '✉️ info@gestepa.com', href: 'mailto:info@gestepa.com' },
+        { text: '📞 955 21 15 15', href: 'tel:955211515' },
+        { text: '✉️ recursos@gestepa.com', href: 'mailto:recursos@gestepa.com' },
       ],
     },
   ],
